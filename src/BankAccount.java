@@ -19,12 +19,21 @@ public class BankAccount {
         this.balance = balance;
     }
 
+    public BankAccount(String accountNumber, String accountName) {
+        this.accountNumber = accountNumber;
+        this.accountName = accountName;
+    }
 
+    public BankAccount(String accountNumber, String accountName, double balance) {
+        this(accountNumber, accountName);
+
+        this.balance = balance;
+    }
 
     public void transfer(BankAccount from, BankAccount to, double transferAmount){
-        double fromFinal = from.getBalance() - transferAmount;
+        double fromFinal = this.getBalance() - transferAmount;
         double toFinal = to.getBalance() + transferAmount;
-        from.setBalance(fromFinal);
+        this.setBalance(fromFinal);
         to.setBalance(toFinal);
 
         System.out.println("********After Transfer********");
